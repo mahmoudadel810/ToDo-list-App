@@ -7,8 +7,9 @@ export const tokenFunction = ({
   expiresIn = 60 * 60,
   generate = true
 })=>
-{
+{   
   // TODO: check for empty object
+  
   if (typeof payload == "object") {
     if (Object.keys(payload).length) {
       if (generate && typeof payload == "object") {

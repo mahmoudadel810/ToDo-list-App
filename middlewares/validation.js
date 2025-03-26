@@ -4,6 +4,7 @@ export const validation = (schema) => {
   return (req, res, next) => {
     let validationErrorsArr = [];
     const requestKeys = ["body", "params", "query", "headers", "file", "files"];
+
     for (const key of requestKeys) {
       if (schema[key]) {
         const validationResult = schema[key].validate(req[key], {
@@ -15,6 +16,7 @@ export const validation = (schema) => {
         }
       }
     }
+    
 
     if (validationErrorsArr.length) {
       return res.json({
